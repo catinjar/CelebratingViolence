@@ -1,12 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://clgp1p0i3m4il"]
+[gd_scene load_steps=5 format=3 uid="uid://clgp1p0i3m4il"]
 
 [ext_resource type="PackedScene" uid="uid://bwo5q6nfw8tf2" path="res://scenes/player.tscn" id="1_grqjo"]
-[ext_resource type="PackedScene" uid="uid://c06vhqxp0xjq2" path="res://scenes/enemy.tscn" id="2_cs7ws"]
+[ext_resource type="PackedScene" uid="uid://c8lgfssos4etv" path="res://scenes/ui.tscn" id="1_lmhd5"]
+[ext_resource type="PackedScene" uid="uid://dybfwbeft28mb" path="res://scenes/enemy_spawner.tscn" id="1_t7wu2"]
+[ext_resource type="PackedScene" uid="uid://d14s6edxe6qe7" path="res://scenes/upgrade_window.tscn" id="2_cg3mb"]
 
 [node name="Main" type="Node"]
 
+[node name="UpgradeWindow" parent="." instance=ExtResource("2_cg3mb")]
+process_mode = 3
+visible = false
+
+[node name="UI" parent="." instance=ExtResource("1_lmhd5")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("1_t7wu2")]
+
+[node name="BulletContainer" type="Node" parent="."]
+
+[node name="MoneyContainer" type="Node" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("1_grqjo")]
 position = Vector2(895, 525)
-
-[node name="Enemy" parent="." instance=ExtResource("2_cs7ws")]
-position = Vector2(433, 315)

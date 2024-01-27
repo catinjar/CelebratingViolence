@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://d14s6edxe6qe7"]
+
+[ext_resource type="FontFile" uid="uid://c4mojrfh18yxu" path="res://Compacta Bold.otf" id="1_15g55"]
+[ext_resource type="Script" path="res://scenes/upgrade_window.gd" id="1_t75m8"]
+
+[node name="UpgradeWindow" type="CanvasLayer"]
+script = ExtResource("1_t75m8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -588.5
+offset_top = -298.5
+offset_right = 588.5
+offset_bottom = 298.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.513726, 0, 0, 0.286275)
+
+[node name="Next" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 94.5
+offset_top = 0.5
+offset_right = 1106.5
+offset_bottom = 141.5
+theme_override_fonts/font = ExtResource("1_15g55")
+theme_override_font_sizes/font_size = 64
+text = "Select the next thing to celebrate"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="First" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 192.0
+offset_right = 523.0
+offset_bottom = 403.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_15g55")
+theme_override_font_sizes/font_size = 64
+text = "First"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+uppercase = true
+
+[node name="Second" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 195.0
+offset_right = 1178.0
+offset_bottom = 406.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_15g55")
+theme_override_font_sizes/font_size = 64
+text = "Second"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Description" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 447.0
+offset_right = 1179.0
+offset_bottom = 603.0
+theme_override_fonts/font = ExtResource("1_15g55")
+theme_override_font_sizes/font_size = 64
+text = "I FIND IT LITTLE STRANGE THAT I HAVEN'T DIED"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[connection signal="gui_input" from="ColorRect/First" to="." method="_on_first_gui_input"]
+[connection signal="mouse_entered" from="ColorRect/First" to="." method="_on_first_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/First" to="." method="_on_first_mouse_exited"]
+[connection signal="gui_input" from="ColorRect/Second" to="." method="_on_second_gui_input"]
+[connection signal="mouse_entered" from="ColorRect/Second" to="." method="_on_second_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/Second" to="." method="_on_second_mouse_exited"]
