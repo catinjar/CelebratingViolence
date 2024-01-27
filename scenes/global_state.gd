@@ -6,6 +6,7 @@ enum Rule
 	DAY_OF_THE_DEAD = 1
 }
 
+var health = 100
 var money = 0
 var used_rules : Array[Rule]
 
@@ -17,6 +18,13 @@ func add_money(amount):
 		upgrade_window.show()
 		upgrade_window.set_rules(GlobalState.get_new_rules())
 		money = 0
+		
+		$LevelUpSound.play()
+
+func take_damage(amount):
+	health -= amount
+	if health <= 0:
+		get_tree().change_scene_to_file("res://start_screen.tscn")
 
 func get_new_rules():
 	var available_rules : Array[Rule]

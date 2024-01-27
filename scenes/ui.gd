@@ -1,4 +1,6 @@
 extends CanvasLayer
 
 func _process(delta):
-	$ProgressBar.value = GlobalState.money
+	$MoneyBar.value = GlobalState.money
+	$HealthBar.value = GlobalState.health
+	

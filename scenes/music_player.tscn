@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://m2f57b4m42le"]
+
+[ext_resource type="AudioStream" uid="uid://dmtg0df8h3ppl" path="res://sounds/music.mp3" id="1_k3rr7"]
+[ext_resource type="AudioStream" uid="uid://hkneykudvn10" path="res://sounds/hitHurt.wav" id="2_2ol6a"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_k3rr7")
+autoplay = true
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_2ol6a")
+attenuation = 2.2974

@@ -39,10 +39,13 @@ func _on_body_entered(body):
 					var money_container = get_node("/root/Main/MoneyContainer")
 					money_container.add_child(money)
 				
-				if randi_range(0, 100) < 50 and GlobalState.has_rule(GlobalState.Rule.DAY_OF_THE_DEAD) and not is_dead:
+			if randi_range(0, 100) < 50 and GlobalState.has_rule(GlobalState.Rule.DAY_OF_THE_DEAD) and not is_dead:
 					var dead_enemy = dead_enemy_scene.instantiate()
 					dead_enemy.global_position = global_position
 					var dead_enemy_container = get_node("/root/Main/EnemySpawner")
 					dead_enemy_container.add_child(dead_enemy)
 				
+			var death_sound = get_node("/root/MusicPlayer/DeathSound")
+			death_sound.play()
+			
 			queue_free()

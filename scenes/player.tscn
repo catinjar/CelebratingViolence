@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwo5q6nfw8tf2"]
+[gd_scene load_steps=7 format=3 uid="uid://bwo5q6nfw8tf2"]
 
 [ext_resource type="Texture2D" uid="uid://mhudwpew4vly" path="res://art/player.png" id="1_nbyy3"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_ups5s"]
 [ext_resource type="PackedScene" uid="uid://bxet5ohbv4b0f" path="res://scenes/bullet.tscn" id="2_klya7"]
+[ext_resource type="AudioStream" uid="uid://d1520nx6mdqrp" path="res://sounds/blipSelect.wav" id="4_fmkee"]
+[ext_resource type="AudioStream" uid="uid://b25xqgtq0nrhj" path="res://sounds/laserShoot.wav" id="5_22l1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvisr"]
 radius = 27.2947
@@ -23,5 +25,17 @@ texture = ExtResource("1_nbyy3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tvisr")
 debug_color = Color(0, 0.568627, 0.647059, 0.419608)
+
+[node name="CollectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fmkee")
+attenuation = 2.37841
+max_polyphony = 3
+bus = &"Player"
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_22l1p")
+attenuation = 2.07053
+max_polyphony = 4
+bus = &"Player"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

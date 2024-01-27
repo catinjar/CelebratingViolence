@@ -6,10 +6,12 @@ extends RigidBody2D
 
 var reload_time = 0.2
 var shoot_time = 0
+var cooldown_time = 0
 
 func _process(delta):
 	update_movement(delta)
 	update_shooting(delta)
+	update_cooldown(delta)
 
 func update_movement(delta):
 	var mouse_position = get_viewport().get_mouse_position()
@@ -59,8 +61,20 @@ func update_shooting(delta):
 			bullet.linear_velocity = bullet_direction * bullet_speed
 		
 		shoot_time -= actual_reload_time
+		
+		$ShootSound.play()
+
+
+func update_cooldown(delta):
+	cooldown_time += delta
 
 
 func _on_body_entered(body):
 	if body.is_in_group("money"):
 		GlobalState.add_money(randi_range(5, 10))
+		$CollectSound.play()
+	
+	if body.is_in_group("enemies") and cooldown_time > 0.5:
+		cooldown_time = 0
+		GlobalState.take_damage(5)
+		$CollectSound.play()
