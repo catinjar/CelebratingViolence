@@ -41,7 +41,7 @@ func _on_second_gui_input(event):
 func _on_first_mouse_entered():
 	$ColorRect/First.set("theme_override_colors/font_color", Color("d62411"))
 	$ColorRect/Second.set("theme_override_colors/font_color", Color("ffffff"))
-	$ColorRect/Description.text = rule_descriptions[second_rule]
+	$ColorRect/Description.text = rule_descriptions[first_rule]
 
 
 func _on_first_mouse_exited():

@@ -3,8 +3,9 @@ class_name Enemy
 extends RigidBody2D
 
 @export var money_scene : PackedScene
-
-var health = 3
+@export var dead_enemy_scene : PackedScene
+@export var is_dead = false
+@export var health = 3
 
 func _process(delta):
 	var players = get_tree().get_nodes_in_group("player")
@@ -21,11 +22,27 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("bullets"):
-		health -= 1
+		var damage = 1
+		if GlobalState.has_rule(GlobalState.Rule.DAY_OF_THE_DEAD) and not is_dead:
+			damage = 3
+		
+		health -= damage
 		if health <= 0:
 			if randi_range(0, 100) < 65:
-				var money = money_scene.instantiate()
-				money.global_position = global_position
-				var money_container = get_node("/root/Main/MoneyContainer")
-				money_container.add_child(money)
+				var money_count = 1
+				if is_dead:
+					money_count = 2
+				
+				for i in money_count:
+					var money = money_scene.instantiate()
+					money.global_position = Vector2(global_position.x + randi_range(-50, 50), global_position.y + randi_range(-50, 50))
+					var money_container = get_node("/root/Main/MoneyContainer")
+					money_container.add_child(money)
+				
+				if randi_range(0, 100) < 50 and GlobalState.has_rule(GlobalState.Rule.DAY_OF_THE_DEAD) and not is_dead:
+					var dead_enemy = dead_enemy_scene.instantiate()
+					dead_enemy.global_position = global_position
+					var dead_enemy_container = get_node("/root/Main/EnemySpawner")
+					dead_enemy_container.add_child(dead_enemy)
+				
 			queue_free()

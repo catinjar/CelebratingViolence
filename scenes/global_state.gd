@@ -41,5 +41,8 @@ func add_new_rule(rule):
 	used_rules.append(rule)
 	update_rule_conditions()
 	
+func has_rule(rule):
+	return used_rules.find(rule) != -1
+	
 func update_rule_conditions():
 	pass

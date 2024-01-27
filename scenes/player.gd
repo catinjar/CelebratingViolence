@@ -35,16 +35,30 @@ func update_shooting(delta):
 	
 	shoot_time += delta
 	
-	while shoot_time > reload_time:
+	var actual_reload_time = reload_time
+	if GlobalState.has_rule(GlobalState.Rule.ULTRAVIOLENCE):
+		actual_reload_time /= 2.5
+	
+	while shoot_time > actual_reload_time:
 		var bullet = bullet_scene.instantiate()
 		
 		var bullets_node = get_node("/root/Main/BulletContainer")
 		bullets_node.add_child(bullet)
 		
 		bullet.global_position = global_position
-		bullet.linear_velocity = direction.normalized() * 800
 		
-		shoot_time -= reload_time
+		var bullet_speed = 800
+		
+		if GlobalState.has_rule(GlobalState.Rule.ULTRAVIOLENCE):
+			var bullet_direction = direction.normalized()
+			bullet_direction = bullet_direction.rotated(deg_to_rad(randf_range(-30, 30)))
+			bullet.linear_velocity = bullet_direction * bullet_speed
+		else:
+			var bullet_direction = direction.normalized()
+			bullet_direction = bullet_direction.rotated(deg_to_rad(randf_range(-5, 5)))
+			bullet.linear_velocity = bullet_direction * bullet_speed
+		
+		shoot_time -= actual_reload_time
 
 
 func _on_body_entered(body):

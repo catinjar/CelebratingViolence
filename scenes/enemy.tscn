@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c06vhqxp0xjq2"]
+[gd_scene load_steps=6 format=3 uid="uid://c06vhqxp0xjq2"]
 
 [ext_resource type="Texture2D" uid="uid://b75n4ghgqgten" path="res://art/enemy.png" id="1_5s2xa"]
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_8qvyp"]
 [ext_resource type="PackedScene" uid="uid://boc2itkcfvx7j" path="res://scenes/money.tscn" id="2_22b85"]
+[ext_resource type="PackedScene" uid="uid://cucxpombg3rdv" path="res://scenes/dead_enemy.tscn" id="3_ssbg6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j06r7"]
 radius = 24.0832
@@ -15,6 +16,7 @@ max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_8qvyp")
 money_scene = ExtResource("2_22b85")
+dead_enemy_scene = ExtResource("3_ssbg6")
 metadata/_edit_group_ = true
 
 [node name="BodySprite" type="Sprite2D" parent="."]
