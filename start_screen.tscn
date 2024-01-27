@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcitw8ngpe3lv"]
+
+[ext_resource type="Script" path="res://start_screen.gd" id="1_nv0bw"]
+[ext_resource type="FontFile" uid="uid://c4mojrfh18yxu" path="res://Compacta Bold.otf" id="2_2k87n"]
+
+[node name="StartScreen" type="Node"]
+script = ExtResource("1_nv0bw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="First" type="Label" parent="CanvasLayer"]
+offset_left = 439.0
+offset_top = 63.0
+offset_right = 1451.0
+offset_bottom = 204.0
+theme_override_fonts/font = ExtResource("2_2k87n")
+theme_override_font_sizes/font_size = 64
+text = "Select the first thing to celebrate"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Violence" type="Label" parent="CanvasLayer"]
+offset_left = 730.0
+offset_top = 502.0
+offset_right = 1219.0
+offset_bottom = 662.0
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_2k87n")
+theme_override_font_sizes/font_size = 128
+text = "VIOLENCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Mood" type="Label" parent="CanvasLayer"]
+offset_left = 925.0
+offset_top = 907.0
+offset_right = 1024.0
+offset_bottom = 973.0
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.266667, 0.0196078, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("2_2k87n")
+theme_override_font_sizes/font_size = 32
+text = "Mood"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[connection signal="gui_input" from="CanvasLayer/Violence" to="." method="_on_violence_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Violence" to="." method="_on_violence_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Violence" to="." method="_on_violence_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/Mood" to="." method="_on_mood_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Mood" to="." method="_on_mood_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Mood" to="." method="_on_mood_mouse_exited"]

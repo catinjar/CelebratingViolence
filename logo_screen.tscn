@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6wge8s7425si"]
+
+[ext_resource type="Script" path="res://logo_screen.gd" id="1_4gbk2"]
+[ext_resource type="Texture2D" uid="uid://2bwbedy5ghek" path="res://art/catinjar.png" id="1_qtke7"]
+
+[node name="LogoScreen" type="Node"]
+script = ExtResource("1_4gbk2")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(965, 542)
+texture = ExtResource("1_qtke7")
