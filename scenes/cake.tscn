@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbq3kydmgpjb6"]
+
+[ext_resource type="Script" path="res://scenes/loot/money.gd" id="1_e7f2e"]
+[ext_resource type="Texture2D" uid="uid://jfpqymydehcw" path="res://art/cake.png" id="2_3jw03"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oshot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_54ic8"]
+radius = 28.6356
+
+[node name="Cake" type="RigidBody2D" groups=["money"]]
+collision_layer = 8
+collision_priority = 5.0
+physics_material_override = SubResource("PhysicsMaterial_oshot")
+gravity_scale = 0.0
+can_sleep = false
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_e7f2e")
+is_cake = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.398438, 0.398438)
+texture = ExtResource("2_3jw03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_54ic8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

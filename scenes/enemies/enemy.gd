@@ -7,6 +7,7 @@ extends RigidBody2D
 @export var is_dead = false
 @export var is_halloween = false
 @export var is_valentine = false
+@export var is_dragon = false
 @export var health = 3
 
 func _process(delta):
@@ -17,8 +18,12 @@ func _process(delta):
 	
 	var player = players[0]
 	var direction = (player.global_position - global_position).normalized()
-	var velocity = direction * 100
 	
+	var velocity_value = 100
+	if GlobalState.has_rule(GlobalState.Rule.CHINESE_NEW_YEAR) and is_dragon:
+		velocity_value = 50
+	
+	var velocity = direction * velocity_value
 	linear_velocity = velocity
 
 

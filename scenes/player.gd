@@ -5,6 +5,7 @@ extends RigidBody2D
 @export var bullet_scene : PackedScene
 @export var new_year_bullet_scene : PackedScene
 @export var valentines_day_bullet_scene : PackedScene
+@export var chinese_bullet_scene : PackedScene
 
 var reload_time = 0.2
 var shoot_time = 0
@@ -16,6 +17,9 @@ var valentines_day_reload_time = 0.1
 var valentines_day_shoot_time = 0
 var valentines_day_angle = 0
 
+var chinese_reload_time = 0.25
+var chinese_shoot_time = 0
+
 var cooldown_time = 0
 
 func _process(delta):
@@ -25,6 +29,8 @@ func _process(delta):
 		update_new_year_shooting(delta)
 	if GlobalState.has_rule(GlobalState.Rule.VALENTINES_DAY):
 		update_valentines_day_shooting(delta)
+	if GlobalState.has_rule(GlobalState.Rule.CHINESE_NEW_YEAR):
+		update_chinese_shooting(delta)
 	update_cooldown(delta)
 	update_lighting()
 
@@ -149,6 +155,51 @@ func update_valentines_day_shooting(delta):
 		$ShootSound.play()
 
 
+func update_chinese_shooting(delta):
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	if enemies.size() == 0:
+		return
+	
+	var closest_enemy : Enemy	
+	var closest_length = INF
+	for enemy in enemies:
+		var direction = enemy.global_position - global_position
+		if direction.length() < closest_length:
+			closest_enemy = enemy
+			closest_length = direction.length()
+		
+	var direction = closest_enemy.global_position - global_position
+	
+	chinese_shoot_time += delta
+	
+	var actual_reload_time = chinese_reload_time
+	if GlobalState.has_rule(GlobalState.Rule.ULTRAVIOLENCE):
+		actual_reload_time /= 2.5
+	
+	while chinese_shoot_time > actual_reload_time:
+		var bullet = chinese_bullet_scene.instantiate()
+		
+		var bullets_node = get_node("/root/Main/BulletContainer")
+		bullets_node.add_child(bullet)
+		
+		bullet.global_position = global_position
+		
+		var bullet_speed = 250
+		
+		if GlobalState.has_rule(GlobalState.Rule.ULTRAVIOLENCE):
+			var bullet_direction = direction.normalized()
+			bullet_direction = bullet_direction.rotated(deg_to_rad(randf_range(-80, 80)))
+			bullet.linear_velocity = bullet_direction * bullet_speed
+		else:
+			var bullet_direction = direction.normalized()
+			bullet_direction = bullet_direction.rotated(deg_to_rad(randf_range(-40, 40)))
+			bullet.linear_velocity = bullet_direction * bullet_speed
+		
+		chinese_shoot_time -= actual_reload_time
+		
+		$ShootSound.play()
+
+
 func update_cooldown(delta):
 	cooldown_time += delta
 
@@ -167,6 +218,10 @@ func _on_body_entered(body):
 	if body.is_in_group("money"):
 		GlobalState.add_money(randi_range(5, 10))
 		$CollectSound.play()
+	
+	if body is Money and body.is_cake:
+		GlobalState.add_health(100)
+		GlobalState.add_money(100)
 	
 	if body.is_in_group("enemies") and cooldown_time > 0.5:
 		cooldown_time = 0

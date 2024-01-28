@@ -10,7 +10,9 @@ enum Rule
 	POSTMODERNISM = 5,
 	POSTPROCESS = 6,
 	VALENTINES_DAY = 7,
-	MUSIC = 8
+	MUSIC = 8,
+	BIRTHDAY = 9,
+	CHINESE_NEW_YEAR = 10
 }
 
 var health = 100
@@ -18,7 +20,7 @@ var money = 0
 var used_rules : Array[Rule]
 
 func _ready():
-	used_rules.append(Rule.MUSIC)
+	used_rules.append(Rule.BIRTHDAY)
 	pass
 
 func reset():

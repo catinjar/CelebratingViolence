@@ -9,7 +9,9 @@ var rule_names = [
 	"Post-modernism",
 	"Post-processing",
 	"Valentine's Day",
-	"Music"
+	"Music",
+	"Birthday",
+	"Chinese New Year"
 ]
 
 var rule_descriptions = [
@@ -21,7 +23,9 @@ var rule_descriptions = [
 	"Nothing changes it's already all meta",
 	"Makes everything look better",
 	"All you need is love",
-	"Make soundtrack more appropriate"
+	"Make soundtrack more appropriate",
+	"Cake is a lie",
+	"新年快樂"
 ]
 
 var first_rule = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwo5q6nfw8tf2"]
+[gd_scene load_steps=11 format=3 uid="uid://bwo5q6nfw8tf2"]
 
 [ext_resource type="Texture2D" uid="uid://mhudwpew4vly" path="res://art/player.png" id="1_nbyy3"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_ups5s"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://d1520nx6mdqrp" path="res://sounds/blipSelect.wav" id="4_fmkee"]
 [ext_resource type="PackedScene" uid="uid://yv4b32x1plxg" path="res://scenes/bullets/valentine_bullet.tscn" id="4_mmwq4"]
 [ext_resource type="AudioStream" uid="uid://b25xqgtq0nrhj" path="res://sounds/laserShoot.wav" id="5_22l1p"]
+[ext_resource type="PackedScene" uid="uid://qr84kyvdphhm" path="res://scenes/bullets/flame_bullet.tscn" id="5_t2mlg"]
 [ext_resource type="Texture2D" uid="uid://cl01847k4gdhs" path="res://art/2d_lights_and_shadows_neutral_point_light.webp" id="6_k1f4w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvisr"]
@@ -21,6 +22,7 @@ script = ExtResource("1_ups5s")
 bullet_scene = ExtResource("2_jnbni")
 new_year_bullet_scene = ExtResource("3_c3c3q")
 valentines_day_bullet_scene = ExtResource("4_mmwq4")
+chinese_bullet_scene = ExtResource("5_t2mlg")
 metadata/_edit_group_ = true
 
 [node name="BodySprite" type="Sprite2D" parent="."]

@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://c8lgfssos4etv" path="res://scenes/ui.tscn" id="1_lmhd5"]
 [ext_resource type="PackedScene" uid="uid://dybfwbeft28mb" path="res://scenes/enemy_spawner.tscn" id="1_t7wu2"]
 [ext_resource type="PackedScene" uid="uid://d14s6edxe6qe7" path="res://scenes/upgrade_window.tscn" id="2_cg3mb"]
-[ext_resource type="VideoStream" path="res://art/Rick-Astley-Never-Gonna-Give-You-Up-_Official-Music-Video_.ogv" id="3_1y55k"]
 [ext_resource type="Shader" path="res://post.gdshader" id="3_tus8y"]
 [ext_resource type="Script" path="res://PostProcess.gd" id="3_uy6j2"]
 [ext_resource type="Script" path="res://scenes/Lighting.gd" id="3_wlca3"]
 [ext_resource type="Script" path="res://scenes/RickRoll.gd" id="4_1p5d8"]
+[ext_resource type="VideoStream" path="res://art/y2mate.is-rick_astley___never_gonna_give_you_up__official_music_video_-dQw4w9WgXcQ-144pp-1706447852.ogv" id="5_8nyui"]
 [ext_resource type="Texture2D" uid="uid://dtcijxbdbucg3" path="res://art/bullet.png" id="5_t4b85"]
 [ext_resource type="Script" path="res://scenes/Snow.gd" id="6_nbi7t"]
 
@@ -46,7 +46,7 @@ offset_bottom = 1076.0
 [node name="RickRoll" type="VideoStreamPlayer" parent="."]
 offset_right = 1927.0
 offset_bottom = 1076.0
-stream = ExtResource("3_1y55k")
+stream = ExtResource("5_8nyui")
 volume_db = -80.0
 autoplay = true
 expand = true
