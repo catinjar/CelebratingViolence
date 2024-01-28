@@ -43,4 +43,4 @@ func _on_timer_timeout():
 	elif side_index == 3:
 		enemy.global_position = Vector2(randi_range(0, 1920), 1180)
 		
-	$Timer.wait_time = 0.1 if GlobalState.has_rule(GlobalState.Rule.ULTRAVIOLENCE) else 0.25
+	$Timer.wait_time = (0.3 - GlobalState.get_spawn_time_bonus()) if GlobalState.has_rule(GlobalState.Rule.ULTRAVIOLENCE) else (0.5 - GlobalState.get_spawn_time_bonus())

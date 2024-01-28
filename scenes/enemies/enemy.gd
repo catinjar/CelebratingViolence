@@ -35,12 +35,14 @@ func _on_body_entered(body):
 		
 		health -= damage
 		if health <= 0:
-			if randi_range(0, 100) < 65:
+			if randi_range(0, 100) < 65 or is_dragon:
 				var money_count = 1
 				if is_dead:
 					money_count = 2
 				if is_valentine:
 					money_count = 3
+				if is_dragon:
+					money_count = 10
 				
 				for i in money_count:
 					var money = money_scene.instantiate()

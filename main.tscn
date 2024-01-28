@@ -42,6 +42,7 @@ script = ExtResource("3_uy6j2")
 material = SubResource("ShaderMaterial_hm76a")
 offset_right = 1920.0
 offset_bottom = 1076.0
+mouse_filter = 2
 
 [node name="RickRoll" type="VideoStreamPlayer" parent="."]
 offset_right = 1927.0

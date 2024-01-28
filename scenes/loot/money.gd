@@ -11,10 +11,11 @@ func _process(delta):
 	
 	var player = players[0]
 	var direction = (player.global_position - global_position).normalized()
-	var force = direction * 20
+	var force = direction * 1000
 	var distance = 300
 	
-	if GlobalState.has_rule(GlobalState.Rule.BIRTHDAY):
+	if GlobalState.has_rule(GlobalState.Rule.BIRTHDAY) and is_cake:
+		force /= 50
 		force *= -1
 		distance = 600
 	

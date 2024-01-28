@@ -15,6 +15,7 @@ enum Rule
 	CHINESE_NEW_YEAR = 10
 }
 
+var level = 0
 var health = 100
 var money = 0
 var used_rules : Array[Rule]
@@ -28,14 +29,22 @@ func reset():
 	money = 0
 	used_rules.clear()
 
+func get_needed_money():
+	return 100 + level * 100
+
+func get_spawn_time_bonus():
+	return level * -0.04
+
 func add_money(amount):
 	money += amount
-	if money >= 100:
+	if money >= get_needed_money():
 		get_tree().paused = true
 		var upgrade_window = get_node("/root/Main/UpgradeWindow")
 		upgrade_window.show()
 		upgrade_window.set_rules(GlobalState.get_new_rules())
 		money = 0
+		
+		level += 1
 		
 		$LevelUpSound.play()
 		
