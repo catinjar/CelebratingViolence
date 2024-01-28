@@ -19,6 +19,7 @@ money_scene = ExtResource("2_jlqjq")
 dead_enemy_scene = ExtResource("3_ihuc5")
 is_valentine = true
 health = 8
+score = 69
 metadata/_edit_group_ = true
 
 [node name="BodySprite" type="Sprite2D" parent="."]

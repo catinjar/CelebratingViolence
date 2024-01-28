@@ -9,6 +9,7 @@ radius = 131.034
 [node name="Dragon" instance=ExtResource("1_wvsqu")]
 is_dragon = true
 health = 150
+score = 500
 
 [node name="BodySprite" parent="." index="0"]
 scale = Vector2(3.19336, 3.19336)

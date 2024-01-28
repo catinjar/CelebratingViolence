@@ -9,6 +9,7 @@ extends RigidBody2D
 @export var is_valentine = false
 @export var is_dragon = false
 @export var health = 3
+@export var score = 10
 
 func _process(delta):
 	var players = get_tree().get_nodes_in_group("player")
@@ -58,5 +59,7 @@ func _on_body_entered(body):
 				
 			var death_sound = get_node("/root/MusicPlayer/DeathSound")
 			death_sound.play()
+			
+			GlobalState.add_score(score)
 			
 			queue_free()

@@ -15,6 +15,9 @@ enum Rule
 	CHINESE_NEW_YEAR = 10
 }
 
+var high_score = 0
+var score = 0
+
 var level = 0
 var health = 100
 var money = 0
@@ -25,6 +28,10 @@ func _ready():
 	pass
 
 func reset():
+	if score > high_score:
+		high_score = score
+	score = 0
+	
 	health = 100
 	money = 0
 	used_rules.clear()
@@ -35,8 +42,12 @@ func get_needed_money():
 func get_spawn_time_bonus():
 	return level * -0.04
 
+func add_score(amount):
+	score += amount
+
 func add_money(amount):
 	money += amount
+	add_score(5)
 	if money >= get_needed_money():
 		get_tree().paused = true
 		var upgrade_window = get_node("/root/Main/UpgradeWindow")

@@ -17,6 +17,7 @@ script = ExtResource("1_03a8y")
 money_scene = ExtResource("2_pnuhk")
 is_dead = true
 health = 4
+score = 15
 metadata/_edit_group_ = true
 
 [node name="BodySprite" type="Sprite2D" parent="."]

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b75n4ghgqgten" path="res://art/enemy.png" id="4_yohgu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j06r7"]
-radius = 22.0
+radius = 131.034
 
 [node name="Enemy" type="RigidBody2D" groups=["enemies"]]
 collision_layer = 2
@@ -17,6 +17,7 @@ contact_monitor = true
 script = ExtResource("1_yqj60")
 money_scene = ExtResource("2_up3jy")
 dead_enemy_scene = ExtResource("3_4jw32")
+score = 1
 metadata/_edit_group_ = true
 
 [node name="BodySprite" type="Sprite2D" parent="."]

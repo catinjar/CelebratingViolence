@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8lgfssos4etv"]
+[gd_scene load_steps=5 format=3 uid="uid://c8lgfssos4etv"]
 
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_bhfk0"]
 [ext_resource type="Script" path="res://scenes/ProgressBar.gd" id="2_ih1lp"]
 [ext_resource type="Script" path="res://scenes/HealthBar.gd" id="3_p4e86"]
+[ext_resource type="FontFile" uid="uid://c4mojrfh18yxu" path="res://Compacta Bold.otf" id="4_c345e"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_bhfk0")
@@ -47,3 +48,20 @@ offset_right = -17.0
 offset_bottom = 38.48
 theme_override_font_sizes/font_size = 40
 text = "HEALTH (band)"
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -80.0
+offset_right = -57.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_c345e")
+theme_override_font_sizes/font_size = 50
+text = "SCORE 100"
+uppercase = true
