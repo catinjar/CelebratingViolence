@@ -12,7 +12,11 @@ enum Rule
 	VALENTINES_DAY = 7,
 	MUSIC = 8,
 	BIRTHDAY = 9,
-	CHINESE_NEW_YEAR = 10
+	CHINESE_NEW_YEAR = 10,
+	CHRIST_JESUS = 11,
+	BLOOD = 12,
+	MONEY = 13,
+	LOVE = 14
 }
 
 var high_score = 0
@@ -24,7 +28,7 @@ var money = 0
 var used_rules : Array[Rule]
 
 func _ready():
-	used_rules.append(Rule.BIRTHDAY)
+	used_rules.append(Rule.LOVE)
 	pass
 
 func reset():
@@ -46,7 +50,7 @@ func add_score(amount):
 	score += amount
 
 func add_money(amount):
-	money += amount
+	money += amount * 1.5
 	add_score(5)
 	if money >= get_needed_money():
 		get_tree().paused = true

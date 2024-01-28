@@ -11,7 +11,11 @@ var rule_names = [
 	"Valentine's Day",
 	"Music",
 	"Birthday",
-	"Chinese New Year"
+	"Chinese New Year",
+	"Christ Jesus",
+	"Blood",
+	"Money",
+	"Love"
 ]
 
 var rule_descriptions = [
@@ -25,7 +29,11 @@ var rule_descriptions = [
 	"All you need is love",
 	"Make soundtrack more appropriate",
 	"Cake is a lie",
-	"新年快樂"
+	"新年快樂",
+	"Godspeed You",
+	"Rated M for mature",
+	"Money can kill",
+	"Love is not enough"
 ]
 
 var first_rule = 0

@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c06vhqxp0xjq2"]
+[gd_scene load_steps=7 format=3 uid="uid://c06vhqxp0xjq2"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_yqj60"]
 [ext_resource type="PackedScene" uid="uid://boc2itkcfvx7j" path="res://scenes/loot/money.tscn" id="2_up3jy"]
 [ext_resource type="PackedScene" uid="uid://cucxpombg3rdv" path="res://scenes/enemies/dead_enemy.tscn" id="3_4jw32"]
+[ext_resource type="PackedScene" uid="uid://b5hlsmleyglv1" path="res://scenes/blood.tscn" id="4_gkj1h"]
 [ext_resource type="Texture2D" uid="uid://b75n4ghgqgten" path="res://art/enemy.png" id="4_yohgu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j06r7"]
-radius = 131.034
+radius = 20.2237
 
 [node name="Enemy" type="RigidBody2D" groups=["enemies"]]
 collision_layer = 2
@@ -17,6 +18,7 @@ contact_monitor = true
 script = ExtResource("1_yqj60")
 money_scene = ExtResource("2_up3jy")
 dead_enemy_scene = ExtResource("3_4jw32")
+blood_scene = ExtResource("4_gkj1h")
 score = 1
 metadata/_edit_group_ = true
 

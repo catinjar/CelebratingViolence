@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_54ic8"]
 radius = 28.6356
 
-[node name="Money" type="RigidBody2D" groups=["money"]]
+[node name="Money" type="RigidBody2D" groups=["bullet", "money"]]
 collision_layer = 8
 collision_priority = 5.0
 physics_material_override = SubResource("PhysicsMaterial_oshot")

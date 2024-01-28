@@ -21,6 +21,7 @@ func _process(delta):
 	
 	if (player.global_position - global_position).length() < distance:
 		apply_force(force)
+		
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):

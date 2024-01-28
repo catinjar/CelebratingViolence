@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg4m5u2tbprqf"]
+[gd_scene load_steps=7 format=3 uid="uid://cg4m5u2tbprqf"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_7ds6q"]
 [ext_resource type="PackedScene" uid="uid://km7ngomammkd" path="res://scenes/loot/candy.tscn" id="2_jlqjq"]
 [ext_resource type="PackedScene" uid="uid://cucxpombg3rdv" path="res://scenes/enemies/dead_enemy.tscn" id="3_ihuc5"]
 [ext_resource type="Texture2D" uid="uid://4md78nndqvht" path="res://art/heart_enemy.png" id="4_7vigo"]
+[ext_resource type="PackedScene" uid="uid://b5hlsmleyglv1" path="res://scenes/blood.tscn" id="4_gj3uo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0rpe3"]
 radius = 83.3847
@@ -17,6 +18,7 @@ contact_monitor = true
 script = ExtResource("1_7ds6q")
 money_scene = ExtResource("2_jlqjq")
 dead_enemy_scene = ExtResource("3_ihuc5")
+blood_scene = ExtResource("4_gj3uo")
 is_valentine = true
 health = 8
 score = 69

@@ -4,6 +4,7 @@ extends RigidBody2D
 
 @export var money_scene : PackedScene
 @export var dead_enemy_scene : PackedScene
+@export var blood_scene : PackedScene
 @export var is_dead = false
 @export var is_halloween = false
 @export var is_valentine = false
@@ -26,6 +27,9 @@ func _process(delta):
 	
 	var velocity = direction * velocity_value
 	linear_velocity = velocity
+	
+	if GlobalState.has_rule(GlobalState.Rule.MONEY):
+		set_collision_mask_value(4, true)
 
 
 func _on_body_entered(body):
@@ -61,5 +65,10 @@ func _on_body_entered(body):
 			death_sound.play()
 			
 			GlobalState.add_score(score)
+			
+			var blood = blood_scene.instantiate()
+			blood.global_position = global_position
+			var blood_container = get_node("/root/Main/EnemySpawner")
+			blood_container.add_child(blood)
 			
 			queue_free()

@@ -36,6 +36,7 @@ visible = false
 [node name="UI" parent="." instance=ExtResource("1_lmhd5")]
 
 [node name="PostProcess" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("3_uy6j2")
 
 [node name="ColorRect" type="ColorRect" parent="PostProcess"]

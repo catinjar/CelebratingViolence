@@ -6,6 +6,7 @@ extends RigidBody2D
 @export var new_year_bullet_scene : PackedScene
 @export var valentines_day_bullet_scene : PackedScene
 @export var chinese_bullet_scene : PackedScene
+@export var love_bullet_scene : PackedScene
 
 var reload_time = 0.2
 var shoot_time = 0
@@ -20,6 +21,10 @@ var valentines_day_angle = 0
 var chinese_reload_time = 0.25
 var chinese_shoot_time = 0
 
+var love_reload_time = 0.02
+var love_shoot_time = 0
+var love_disable_time = 0
+
 var cooldown_time = 0
 
 func _process(delta):
@@ -31,6 +36,8 @@ func _process(delta):
 		update_valentines_day_shooting(delta)
 	if GlobalState.has_rule(GlobalState.Rule.CHINESE_NEW_YEAR):
 		update_chinese_shooting(delta)
+	if GlobalState.has_rule(GlobalState.Rule.LOVE):
+		update_love_shooting(delta)
 	update_cooldown(delta)
 	update_lighting()
 
@@ -40,6 +47,47 @@ func update_movement(delta):
 	var velocity = direction * 250
 	
 	global_position += velocity * delta
+
+
+var is_love_disabled = false
+
+func update_love_shooting(delta):
+	love_disable_time += delta
+	if not is_love_disabled and love_disable_time > 5:
+		love_disable_time = 0
+		is_love_disabled = not is_love_disabled
+	
+	if is_love_disabled and love_disable_time > 10:
+		love_disable_time = 0
+		is_love_disabled = not is_love_disabled
+	
+	if is_love_disabled:
+		return
+	
+	var mouse_position = get_viewport().get_mouse_position()
+	var direction = (mouse_position - global_position).normalized()
+	
+	love_shoot_time += delta
+	
+	var actual_reload_time = love_reload_time
+	if GlobalState.has_rule(GlobalState.Rule.ULTRAVIOLENCE):
+		actual_reload_time /= 2.5
+	
+	while love_shoot_time > actual_reload_time:
+		var bullet = love_bullet_scene.instantiate()
+		
+		var bullets_node = get_node("/root/Main/BulletContainer")
+		bullets_node.add_child(bullet)
+		
+		bullet.global_position = global_position
+		
+		var bullet_speed = 3000
+		
+		var bullet_direction = direction.normalized()
+		bullet.linear_velocity = bullet_direction * bullet_speed
+		
+		love_shoot_time -= actual_reload_time
+
 
 func update_shooting(delta):
 	var enemies = get_tree().get_nodes_in_group("enemies")

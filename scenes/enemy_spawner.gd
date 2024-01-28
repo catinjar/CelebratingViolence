@@ -5,9 +5,11 @@ extends Node
 @export var valentines_day_enemy_scene : PackedScene
 @export var cake_scene : PackedScene
 @export var dragon_scene : PackedScene
+@export var christ_jesus_scene : PackedScene
 
 var is_spawned_cake = false
 var is_spawned_dragon = false
+var is_spawned_christ_jesus = false
 
 func _process(delta):
 	pass
@@ -18,6 +20,12 @@ func _on_timer_timeout():
 		cake.global_position = Vector2(randi_range(0, 1920), randi_range(0, 1080))
 		is_spawned_cake = true
 		add_child(cake)
+		
+	if GlobalState.has_rule(GlobalState.Rule.CHRIST_JESUS) and not is_spawned_christ_jesus:
+		var christ_jesus = christ_jesus_scene.instantiate()
+		christ_jesus.global_position = Vector2(960, 540)
+		is_spawned_christ_jesus = true
+		add_child(christ_jesus)
 	
 	var enemy : Enemy
 	
@@ -43,4 +51,4 @@ func _on_timer_timeout():
 	elif side_index == 3:
 		enemy.global_position = Vector2(randi_range(0, 1920), 1180)
 		
-	$Timer.wait_time = (0.3 - GlobalState.get_spawn_time_bonus()) if GlobalState.has_rule(GlobalState.Rule.ULTRAVIOLENCE) else (0.5 - GlobalState.get_spawn_time_bonus())
+	$Timer.wait_time = (0.25 - GlobalState.get_spawn_time_bonus()) if GlobalState.has_rule(GlobalState.Rule.ULTRAVIOLENCE) else (0.4 - GlobalState.get_spawn_time_bonus())

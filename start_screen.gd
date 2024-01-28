@@ -1,5 +1,10 @@
 extends Node
 
+func _process(delta):
+	if GlobalState.high_score == 0:
+		$CanvasLayer/HighScore.text = ""
+	else:
+		$CanvasLayer/HighScore.text = "High Score %d" % GlobalState.high_score
 
 func _on_violence_mouse_entered():
 	$CanvasLayer/Violence.set("theme_override_colors/font_color", Color("d62411"))

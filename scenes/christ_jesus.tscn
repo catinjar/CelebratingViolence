@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1lcl38qm3j1q"]
+
+[ext_resource type="Texture2D" uid="uid://4g2uu35reyem" path="res://art/christ_jesus.png" id="1_bvpfc"]
+[ext_resource type="Script" path="res://scenes/christ_jesus.gd" id="1_t18n8"]
+[ext_resource type="Texture2D" uid="uid://cl01847k4gdhs" path="res://art/2d_lights_and_shadows_neutral_point_light.webp" id="3_q4hh1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kh5fv"]
+radius = 59.8415
+
+[node name="ChristJesus" type="RigidBody2D" groups=["bullets"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_t18n8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.3125, 1.3125)
+texture = ExtResource("1_bvpfc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kh5fv")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("3_q4hh1")

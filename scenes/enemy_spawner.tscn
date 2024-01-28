@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dybfwbeft28mb"]
+[gd_scene load_steps=8 format=3 uid="uid://dybfwbeft28mb"]
 
 [ext_resource type="Script" path="res://scenes/enemy_spawner.gd" id="1_3swob"]
 [ext_resource type="PackedScene" uid="uid://c06vhqxp0xjq2" path="res://scenes/enemies/enemy.tscn" id="2_6tg3c"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cg4m5u2tbprqf" path="res://scenes/enemies/valentine_enemy.tscn" id="4_xag8i"]
 [ext_resource type="PackedScene" uid="uid://bbq3kydmgpjb6" path="res://scenes/cake.tscn" id="5_xxfdl"]
 [ext_resource type="PackedScene" uid="uid://njhk5463b2m7" path="res://scenes/enemies/dragon.tscn" id="6_rbat5"]
+[ext_resource type="PackedScene" uid="uid://d1lcl38qm3j1q" path="res://scenes/christ_jesus.tscn" id="7_xwko0"]
 
 [node name="EnemySpawner" type="Node"]
 script = ExtResource("1_3swob")
@@ -14,6 +15,7 @@ halloween_enemy_scene = ExtResource("3_ouor3")
 valentines_day_enemy_scene = ExtResource("4_xag8i")
 cake_scene = ExtResource("5_xxfdl")
 dragon_scene = ExtResource("6_rbat5")
+christ_jesus_scene = ExtResource("7_xwko0")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25

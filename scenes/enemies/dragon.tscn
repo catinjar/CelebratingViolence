@@ -1,23 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://njhk5463b2m7"]
+[gd_scene load_steps=8 format=3 uid="uid://njhk5463b2m7"]
 
-[ext_resource type="PackedScene" uid="uid://c06vhqxp0xjq2" path="res://scenes/enemies/enemy.tscn" id="1_wvsqu"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_34bbj"]
+[ext_resource type="PackedScene" uid="uid://boc2itkcfvx7j" path="res://scenes/loot/money.tscn" id="2_jc8m2"]
 [ext_resource type="Texture2D" uid="uid://cvlcomku25yvp" path="res://art/dragon_enemy.png" id="2_jf1yt"]
+[ext_resource type="PackedScene" uid="uid://cucxpombg3rdv" path="res://scenes/enemies/dead_enemy.tscn" id="3_c8bwc"]
+[ext_resource type="PackedScene" uid="uid://b5hlsmleyglv1" path="res://scenes/blood.tscn" id="4_giode"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_j06r7"]
-radius = 131.034
+[sub_resource type="CircleShape2D" id="CircleShape2D_0076o"]
+radius = 133.507
 
-[node name="Dragon" instance=ExtResource("1_wvsqu")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_j1l3l"]
+radius = 107.935
+
+[node name="Dragon" type="RigidBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 7
+gravity_scale = 0.0
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_34bbj")
+money_scene = ExtResource("2_jc8m2")
+dead_enemy_scene = ExtResource("3_c8bwc")
+blood_scene = ExtResource("4_giode")
 is_dragon = true
 health = 150
 score = 500
+metadata/_edit_group_ = true
 
-[node name="BodySprite" parent="." index="0"]
+[node name="BodySprite" type="Sprite2D" parent="."]
 scale = Vector2(3.19336, 3.19336)
 texture = ExtResource("2_jf1yt")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-17, -68)
+shape = SubResource("CircleShape2D_0076o")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="2"]
-position = Vector2(2, 47)
-shape = SubResource("CircleShape2D_j06r7")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(2, 89.415)
+shape = SubResource("CircleShape2D_j1l3l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
