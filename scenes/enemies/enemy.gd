@@ -66,9 +66,10 @@ func _on_body_entered(body):
 			
 			GlobalState.add_score(score)
 			
-			var blood = blood_scene.instantiate()
-			blood.global_position = global_position
-			var blood_container = get_node("/root/Main/EnemySpawner")
-			blood_container.add_child(blood)
+			if GlobalState.has_rule(GlobalState.Rule.BLOOD) and blood_scene != null:
+				var blood = blood_scene.instantiate()
+				blood.global_position = global_position
+				var blood_container = get_node("/root/Main/EnemySpawner")
+				blood_container.add_child(blood)
 			
 			queue_free()

@@ -28,23 +28,27 @@ var money = 0
 var used_rules : Array[Rule]
 
 func _ready():
-	used_rules.append(Rule.LOVE)
 	pass
+	
+func _process(delta):
+	if Input.is_action_pressed("exit"):
+		game_over()
 
 func reset():
 	if score > high_score:
 		high_score = score
 	score = 0
 	
+	level = 0
 	health = 100
 	money = 0
 	used_rules.clear()
 
 func get_needed_money():
-	return 100 + level * 100
+	return 100 + level * 80
 
 func get_spawn_time_bonus():
-	return level * -0.04
+	return -0.09 * level
 
 func add_score(amount):
 	score += amount

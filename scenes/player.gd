@@ -271,7 +271,7 @@ func _on_body_entered(body):
 		GlobalState.add_health(100)
 		GlobalState.add_money(100)
 	
-	if body.is_in_group("enemies") and cooldown_time > 0.5:
+	if body.is_in_group("enemies") and cooldown_time > 0.08:
 		cooldown_time = 0
-		GlobalState.take_damage(5)
+		GlobalState.take_damage(1)
 		$CollectSound.play()
