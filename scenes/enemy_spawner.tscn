@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dybfwbeft28mb"]
+[gd_scene load_steps=5 format=3 uid="uid://dybfwbeft28mb"]
 
 [ext_resource type="Script" path="res://scenes/enemy_spawner.gd" id="1_3swob"]
-[ext_resource type="PackedScene" uid="uid://c06vhqxp0xjq2" path="res://scenes/enemy.tscn" id="2_h5h1g"]
+[ext_resource type="PackedScene" uid="uid://c06vhqxp0xjq2" path="res://scenes/enemies/enemy.tscn" id="2_6tg3c"]
+[ext_resource type="PackedScene" uid="uid://c32b7iimf4r6i" path="res://scenes/enemies/halloween_enemy.tscn" id="3_ouor3"]
+[ext_resource type="PackedScene" uid="uid://cg4m5u2tbprqf" path="res://scenes/enemies/valentine_enemy.tscn" id="4_xag8i"]
 
 [node name="EnemySpawner" type="Node"]
 script = ExtResource("1_3swob")
-enemy_scene = ExtResource("2_h5h1g")
+enemy_scene = ExtResource("2_6tg3c")
+halloween_enemy_scene = ExtResource("3_ouor3")
+valentines_day_enemy_scene = ExtResource("4_xag8i")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25

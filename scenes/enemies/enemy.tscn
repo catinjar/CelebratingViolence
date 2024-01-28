@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://c06vhqxp0xjq2"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_yqj60"]
+[ext_resource type="PackedScene" uid="uid://boc2itkcfvx7j" path="res://scenes/loot/money.tscn" id="2_up3jy"]
+[ext_resource type="PackedScene" uid="uid://cucxpombg3rdv" path="res://scenes/enemies/dead_enemy.tscn" id="3_4jw32"]
+[ext_resource type="Texture2D" uid="uid://b75n4ghgqgten" path="res://art/enemy.png" id="4_yohgu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j06r7"]
+radius = 22.0
+
+[node name="Enemy" type="RigidBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 7
+gravity_scale = 0.0
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_yqj60")
+money_scene = ExtResource("2_up3jy")
+dead_enemy_scene = ExtResource("3_4jw32")
+metadata/_edit_group_ = true
+
+[node name="BodySprite" type="Sprite2D" parent="."]
+scale = Vector2(0.386719, 0.386719)
+texture = ExtResource("4_yohgu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j06r7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://km7ngomammkd"]
+
+[ext_resource type="PackedScene" uid="uid://boc2itkcfvx7j" path="res://scenes/loot/money.tscn" id="1_vctow"]
+[ext_resource type="Texture2D" uid="uid://bphqaxs7shd63" path="res://art/candy.png" id="2_l1guh"]
+
+[node name="Candy" groups=["candy"] instance=ExtResource("1_vctow")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_l1guh")

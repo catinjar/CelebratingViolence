@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwo5q6nfw8tf2"]
+[gd_scene load_steps=10 format=3 uid="uid://bwo5q6nfw8tf2"]
 
 [ext_resource type="Texture2D" uid="uid://mhudwpew4vly" path="res://art/player.png" id="1_nbyy3"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_ups5s"]
-[ext_resource type="PackedScene" uid="uid://bxet5ohbv4b0f" path="res://scenes/bullet.tscn" id="2_klya7"]
+[ext_resource type="PackedScene" uid="uid://bxet5ohbv4b0f" path="res://scenes/bullets/bullet.tscn" id="2_jnbni"]
+[ext_resource type="PackedScene" uid="uid://boi77twms46d1" path="res://scenes/bullets/new_year_bullet.tscn" id="3_c3c3q"]
 [ext_resource type="AudioStream" uid="uid://d1520nx6mdqrp" path="res://sounds/blipSelect.wav" id="4_fmkee"]
+[ext_resource type="PackedScene" uid="uid://yv4b32x1plxg" path="res://scenes/bullets/valentine_bullet.tscn" id="4_mmwq4"]
 [ext_resource type="AudioStream" uid="uid://b25xqgtq0nrhj" path="res://sounds/laserShoot.wav" id="5_22l1p"]
+[ext_resource type="Texture2D" uid="uid://cl01847k4gdhs" path="res://art/2d_lights_and_shadows_neutral_point_light.webp" id="6_k1f4w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvisr"]
 radius = 27.2947
@@ -15,7 +18,9 @@ gravity_scale = 0.0
 max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_ups5s")
-bullet_scene = ExtResource("2_klya7")
+bullet_scene = ExtResource("2_jnbni")
+new_year_bullet_scene = ExtResource("3_c3c3q")
+valentines_day_bullet_scene = ExtResource("4_mmwq4")
 metadata/_edit_group_ = true
 
 [node name="BodySprite" type="Sprite2D" parent="."]
@@ -37,5 +42,8 @@ stream = ExtResource("5_22l1p")
 attenuation = 2.07053
 max_polyphony = 4
 bus = &"Player"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("6_k1f4w")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

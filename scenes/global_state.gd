@@ -3,12 +3,28 @@ extends Node
 enum Rule
 {
 	ULTRAVIOLENCE = 0,
-	DAY_OF_THE_DEAD = 1
+	DAY_OF_THE_DEAD = 1,
+	HALLOWEEN = 2,
+	CINEMA = 3,
+	NEW_YEAR = 4,
+	POSTMODERNISM = 5,
+	POSTPROCESS = 6,
+	VALENTINES_DAY = 7,
+	MUSIC = 8
 }
 
 var health = 100
 var money = 0
 var used_rules : Array[Rule]
+
+func _ready():
+	used_rules.append(Rule.MUSIC)
+	pass
+
+func reset():
+	health = 100
+	money = 0
+	used_rules.clear()
 
 func add_money(amount):
 	money += amount
@@ -20,11 +36,20 @@ func add_money(amount):
 		money = 0
 		
 		$LevelUpSound.play()
+		
+func add_health(amount):
+	health += amount
+	if health > 100:
+		health = 100
 
 func take_damage(amount):
 	health -= amount
 	if health <= 0:
-		get_tree().change_scene_to_file("res://start_screen.tscn")
+		game_over()
+
+func game_over():
+	reset()
+	get_tree().change_scene_to_file("res://start_screen.tscn")
 
 func get_new_rules():
 	var available_rules : Array[Rule]
@@ -33,7 +58,8 @@ func get_new_rules():
 		if used_rules.find(rule) == -1:
 			available_rules.append(rule)
 	
-	assert(available_rules.size() >= 2)
+	if available_rules.size() < 2:
+		game_over()
 	
 	var new_rules : Array[Rule]
 	for i in 2:

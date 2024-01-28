@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg4m5u2tbprqf"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_7ds6q"]
+[ext_resource type="PackedScene" uid="uid://km7ngomammkd" path="res://scenes/loot/candy.tscn" id="2_jlqjq"]
+[ext_resource type="PackedScene" uid="uid://cucxpombg3rdv" path="res://scenes/enemies/dead_enemy.tscn" id="3_ihuc5"]
+[ext_resource type="Texture2D" uid="uid://4md78nndqvht" path="res://art/heart_enemy.png" id="4_7vigo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0rpe3"]
+radius = 83.3847
+
+[node name="ValentineEnemy" type="RigidBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 7
+gravity_scale = 0.0
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_7ds6q")
+money_scene = ExtResource("2_jlqjq")
+dead_enemy_scene = ExtResource("3_ihuc5")
+is_valentine = true
+health = 8
+metadata/_edit_group_ = true
+
+[node name="BodySprite" type="Sprite2D" parent="."]
+scale = Vector2(1.55273, 1.55273)
+texture = ExtResource("4_7vigo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0rpe3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

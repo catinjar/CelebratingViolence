@@ -1,9 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://clgp1p0i3m4il"]
+[gd_scene load_steps=14 format=3 uid="uid://clgp1p0i3m4il"]
 
 [ext_resource type="PackedScene" uid="uid://bwo5q6nfw8tf2" path="res://scenes/player.tscn" id="1_grqjo"]
 [ext_resource type="PackedScene" uid="uid://c8lgfssos4etv" path="res://scenes/ui.tscn" id="1_lmhd5"]
 [ext_resource type="PackedScene" uid="uid://dybfwbeft28mb" path="res://scenes/enemy_spawner.tscn" id="1_t7wu2"]
 [ext_resource type="PackedScene" uid="uid://d14s6edxe6qe7" path="res://scenes/upgrade_window.tscn" id="2_cg3mb"]
+[ext_resource type="VideoStream" path="res://art/Rick-Astley-Never-Gonna-Give-You-Up-_Official-Music-Video_.ogv" id="3_1y55k"]
+[ext_resource type="Shader" path="res://post.gdshader" id="3_tus8y"]
+[ext_resource type="Script" path="res://PostProcess.gd" id="3_uy6j2"]
+[ext_resource type="Script" path="res://scenes/Lighting.gd" id="3_wlca3"]
+[ext_resource type="Script" path="res://scenes/RickRoll.gd" id="4_1p5d8"]
+[ext_resource type="Texture2D" uid="uid://dtcijxbdbucg3" path="res://art/bullet.png" id="5_t4b85"]
+[ext_resource type="Script" path="res://scenes/Snow.gd" id="6_nbi7t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hm76a"]
+shader = ExtResource("3_tus8y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ttb1e"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(960, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(960, 1, 1)
+spread = 39.965
+gravity = Vector3(0, 98, 0)
+scale_min = 0.1
+scale_max = 0.2
+color = Color(1, 1, 1, 0.286275)
+turbulence_enabled = true
 
 [node name="Main" type="Node"]
 
@@ -12,6 +34,37 @@ process_mode = 3
 visible = false
 
 [node name="UI" parent="." instance=ExtResource("1_lmhd5")]
+
+[node name="PostProcess" type="CanvasLayer" parent="."]
+script = ExtResource("3_uy6j2")
+
+[node name="ColorRect" type="ColorRect" parent="PostProcess"]
+material = SubResource("ShaderMaterial_hm76a")
+offset_right = 1920.0
+offset_bottom = 1076.0
+
+[node name="RickRoll" type="VideoStreamPlayer" parent="."]
+offset_right = 1927.0
+offset_bottom = 1076.0
+stream = ExtResource("3_1y55k")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
+script = ExtResource("4_1p5d8")
+
+[node name="Snow" type="GPUParticles2D" parent="."]
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_ttb1e")
+texture = ExtResource("5_t4b85")
+lifetime = 30.0
+script = ExtResource("6_nbi7t")
+
+[node name="Lighting" type="Node" parent="."]
+script = ExtResource("3_wlca3")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Lighting"]
+color = Color(0.247059, 0.160784, 0.14902, 1)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_t7wu2")]
 

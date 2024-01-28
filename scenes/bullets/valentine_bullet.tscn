@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://yv4b32x1plxg"]
+
+[ext_resource type="PackedScene" uid="uid://bxet5ohbv4b0f" path="res://scenes/bullets/bullet.tscn" id="1_2g2e6"]
+[ext_resource type="Texture2D" uid="uid://fd7hbsqaaof0" path="res://art/heart_bullet.png" id="2_cpvnl"]
+
+[node name="ValentineBullet" instance=ExtResource("1_2g2e6")]
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 1, 1, 0.694118)
+position = Vector2(0, 0)
+scale = Vector2(0.148438, 0.148438)
+texture = ExtResource("2_cpvnl")

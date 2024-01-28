@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://m2f57b4m42le"]
+[gd_scene load_steps=5 format=3 uid="uid://m2f57b4m42le"]
 
 [ext_resource type="AudioStream" uid="uid://dmtg0df8h3ppl" path="res://sounds/music.mp3" id="1_k3rr7"]
 [ext_resource type="AudioStream" uid="uid://hkneykudvn10" path="res://sounds/hitHurt.wav" id="2_2ol6a"]
+[ext_resource type="Script" path="res://scenes/music_player.gd" id="2_ithp2"]
+[ext_resource type="AudioStream" uid="uid://c8jouq1dmiluc" path="res://sounds/music2.mp3" id="3_81462"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
 process_mode = 3
 stream = ExtResource("1_k3rr7")
 autoplay = true
+script = ExtResource("2_ithp2")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_2ol6a")
 attenuation = 2.2974
+
+[node name="RickRoll" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_81462")

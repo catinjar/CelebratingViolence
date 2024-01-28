@@ -22,12 +22,12 @@ func _on_mood_mouse_exited():
 	$CanvasLayer/Mood.set("theme_override_colors/font_color", Color("440501"))
 
 
-var is_opened_link = false
-
 func _on_mood_gui_input(event):
-	if is_opened_link:
-		return
-	
 	if event is InputEventMouseButton and event.pressed:
-		is_opened_link = true
-		OS.shell_open("https://youtu.be/g_5kwBBDAL4?si=1GPXSZ8jqFIWljWk")
+		var random_value = randi_range(0, 100)
+		if random_value == 0:
+			OS.shell_open("https://youtu.be/puLNuLkyvsE?si=ddMaZzOVBnXbn2xV")
+		elif random_value == 1:
+			OS.shell_open("https://youtu.be/jHWYT9KMnzQ?si=J707XUQEwe-sR_l1")
+		else:
+			OS.shell_open("https://youtu.be/g_5kwBBDAL4?si=1GPXSZ8jqFIWljWk")

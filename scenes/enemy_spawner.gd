@@ -1,12 +1,21 @@
 extends Node
 
 @export var enemy_scene : PackedScene
+@export var halloween_enemy_scene : PackedScene
+@export var valentines_day_enemy_scene : PackedScene
 
 func _process(delta):
 	pass
 
 func _on_timer_timeout():
-	var enemy = enemy_scene.instantiate()
+	var enemy : Enemy
+	
+	if GlobalState.has_rule(GlobalState.Rule.VALENTINES_DAY) and randi_range(0, 100) < 20:
+		enemy = valentines_day_enemy_scene.instantiate()
+	elif GlobalState.has_rule(GlobalState.Rule.HALLOWEEN) and randi_range(0, 100) < 33:
+		enemy = halloween_enemy_scene.instantiate()
+	else:
+		enemy = enemy_scene.instantiate()
 	add_child(enemy)
 
 	var side_index = randi_range(0, 3)

@@ -2,12 +2,26 @@ extends CanvasLayer
 
 var rule_names = [
 	"Ultraviolence",
-	"Day of the dead"
+	"Day of the dead",
+	"Halloween",
+	"Cinema",
+	"New Year",
+	"Post-modernism",
+	"Post-processing",
+	"Valentine's Day",
+	"Music"
 ]
 
 var rule_descriptions = [
 	"Give me all that ultraviolence",
-	"They are coming back"
+	"They are coming back",
+	"Trick or treat?",
+	"Hollywood dreams",
+	"Happy new year",
+	"Nothing changes it's already all meta",
+	"Makes everything look better",
+	"All you need is love",
+	"Make soundtrack more appropriate"
 ]
 
 var first_rule = 0
