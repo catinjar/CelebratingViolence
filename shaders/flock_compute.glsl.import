@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://cegxaiacmrtjd"
+path="res://.godot/imported/flock_compute.glsl-47e7f4d5d894768a525d9236b2024943.res"
+
+[deps]
+
+source_file="res://shaders/flock_compute.glsl"
+dest_files=["res://.godot/imported/flock_compute.glsl-47e7f4d5d894768a525d9236b2024943.res"]
+
+[params]
+

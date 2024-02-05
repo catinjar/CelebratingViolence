@@ -23,8 +23,8 @@ color_ramp = SubResource("GradientTexture1D_qs3vn")
 
 [node name="NewYearBullet" instance=ExtResource("1_vgrhe")]
 
-[node name="Sprite2D" parent="." index="0"]
-modulate = Color(0.87451, 0.709804, 0, 1)
+[node name="FlockSprite" parent="." index="0"]
+modulate = Color(0.831373, 0.823529, 0, 1)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="2"]
 amount = 16

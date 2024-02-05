@@ -42,8 +42,7 @@ func spawn_enemy():
 		enemy = halloween_enemy_scene.instantiate()
 	else:
 		enemy = enemy_scene.instantiate()
-	add_child(enemy)
-
+	
 	var side_index = randi_range(0, 3)
 	
 	if side_index == 0:
@@ -54,7 +53,9 @@ func spawn_enemy():
 		enemy.global_position = Vector2(randi_range(0, 1920), -100)
 	elif side_index == 3:
 		enemy.global_position = Vector2(randi_range(0, 1920), 1180)
-		
+	
+	add_child(enemy)
+	
 	var wait_time = 0.4 - GlobalState.get_spawn_time_bonus()
 	if GlobalState.has_rule(GlobalState.Rule.ULTRAVIOLENCE):
 		wait_time = 0.25 - GlobalState.get_spawn_time_bonus()

@@ -5,8 +5,5 @@
 
 [node name="ValentineBullet" instance=ExtResource("1_2g2e6")]
 
-[node name="Sprite2D" parent="." index="0"]
-modulate = Color(1, 1, 1, 0.694118)
-position = Vector2(0, 0)
-scale = Vector2(0.148438, 0.148438)
+[node name="FlockSprite" parent="." index="0"]
 texture = ExtResource("2_cpvnl")

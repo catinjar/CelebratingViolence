@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c32b7iimf4r6i"]
+[gd_scene load_steps=7 format=3 uid="uid://c32b7iimf4r6i"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_0ixvv"]
 [ext_resource type="PackedScene" uid="uid://km7ngomammkd" path="res://scenes/loot/candy.tscn" id="2_jkile"]
 [ext_resource type="PackedScene" uid="uid://cucxpombg3rdv" path="res://scenes/enemies/dead_enemy.tscn" id="3_c5diw"]
 [ext_resource type="Texture2D" uid="uid://b4s7sulw7rw3f" path="res://art/halloween_enemy.png" id="4_6ksl4"]
+[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://scenes/flock_sprite.tscn" id="5_l2qyr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prs7t"]
 radius = 32.7567
@@ -22,8 +23,8 @@ health = 5
 score = 13
 metadata/_edit_group_ = true
 
-[node name="BodySprite" type="Sprite2D" parent="."]
-scale = Vector2(0.552734, 0.552734)
+[node name="FlockSprite" parent="." instance=ExtResource("5_l2qyr")]
+scale = Vector2(0.553, 0.553)
 texture = ExtResource("4_6ksl4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

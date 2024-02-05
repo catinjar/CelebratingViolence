@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxet5ohbv4b0f"]
+[gd_scene load_steps=6 format=3 uid="uid://bxet5ohbv4b0f"]
 
 [ext_resource type="Script" path="res://scenes/bullets/bullet.gd" id="1_3iy7e"]
 [ext_resource type="Texture2D" uid="uid://dtcijxbdbucg3" path="res://art/bullet.png" id="1_qgu24"]
+[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://scenes/flock_sprite.tscn" id="3_aoevr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mwfrv"]
 
@@ -15,9 +16,8 @@ max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_3iy7e")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.8147e-06, -1)
-scale = Vector2(0.1875, 0.1875)
+[node name="FlockSprite" parent="." instance=ExtResource("3_aoevr")]
+scale = Vector2(0.188, 0.188)
 texture = ExtResource("1_qgu24")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

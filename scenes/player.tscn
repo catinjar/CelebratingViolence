@@ -1,6 +1,5 @@
 [gd_scene load_steps=12 format=3 uid="uid://bwo5q6nfw8tf2"]
 
-[ext_resource type="Texture2D" uid="uid://mhudwpew4vly" path="res://art/player.png" id="1_nbyy3"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_ups5s"]
 [ext_resource type="PackedScene" uid="uid://bxet5ohbv4b0f" path="res://scenes/bullets/bullet.tscn" id="2_jnbni"]
 [ext_resource type="PackedScene" uid="uid://boi77twms46d1" path="res://scenes/bullets/new_year_bullet.tscn" id="3_c3c3q"]
@@ -10,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://qr84kyvdphhm" path="res://scenes/bullets/flame_bullet.tscn" id="5_t2mlg"]
 [ext_resource type="PackedScene" uid="uid://fvslqcv4ohqw" path="res://scenes/love.tscn" id="6_gqkms"]
 [ext_resource type="Texture2D" uid="uid://cl01847k4gdhs" path="res://art/2d_lights_and_shadows_neutral_point_light.webp" id="6_k1f4w"]
+[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://scenes/flock_sprite.tscn" id="8_napqf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvisr"]
 radius = 27.2947
@@ -27,9 +27,8 @@ chinese_bullet_scene = ExtResource("5_t2mlg")
 love_bullet_scene = ExtResource("6_gqkms")
 metadata/_edit_group_ = true
 
-[node name="BodySprite" type="Sprite2D" parent="."]
+[node name="FlockSprite" parent="." instance=ExtResource("8_napqf")]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_nbyy3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tvisr")

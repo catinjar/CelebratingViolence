@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://njhk5463b2m7"]
+[gd_scene load_steps=9 format=3 uid="uid://njhk5463b2m7"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_34bbj"]
 [ext_resource type="PackedScene" uid="uid://boc2itkcfvx7j" path="res://scenes/loot/money.tscn" id="2_jc8m2"]
 [ext_resource type="Texture2D" uid="uid://cvlcomku25yvp" path="res://art/dragon_enemy.png" id="2_jf1yt"]
 [ext_resource type="PackedScene" uid="uid://cucxpombg3rdv" path="res://scenes/enemies/dead_enemy.tscn" id="3_c8bwc"]
 [ext_resource type="PackedScene" uid="uid://b5hlsmleyglv1" path="res://scenes/blood.tscn" id="4_giode"]
+[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://scenes/flock_sprite.tscn" id="5_5m87g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0076o"]
 radius = 133.507
@@ -27,8 +28,8 @@ health = 150
 score = 500
 metadata/_edit_group_ = true
 
-[node name="BodySprite" type="Sprite2D" parent="."]
-scale = Vector2(3.19336, 3.19336)
+[node name="FlockSprite" parent="." instance=ExtResource("5_5m87g")]
+scale = Vector2(3.193, 3.193)
 texture = ExtResource("2_jf1yt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

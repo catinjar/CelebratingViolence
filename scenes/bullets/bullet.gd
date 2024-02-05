@@ -6,7 +6,7 @@ extends RigidBody2D
 
 func _process(delta):
 	if GlobalState.has_rule(GlobalState.Rule.CHINESE_NEW_YEAR) and is_flame and $Sprite2D.scale.length() < 5:
-		$Sprite2D.scale *= 1 + 0.3 * delta
+		$FlockSprite.scale *= 1 + 0.3 * delta
 		$CollisionShape2D.scale *= 1 + 0.3 * delta
 		
 	if GlobalState.has_rule(GlobalState.Rule.LOVE) and is_love:

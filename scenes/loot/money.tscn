@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://boc2itkcfvx7j"]
+[gd_scene load_steps=6 format=3 uid="uid://boc2itkcfvx7j"]
 
 [ext_resource type="Script" path="res://scenes/loot/money.gd" id="1_c1iv4"]
 [ext_resource type="Texture2D" uid="uid://bs2hlxhypabrj" path="res://art/money.png" id="1_twrx6"]
+[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://scenes/flock_sprite.tscn" id="3_4mqbs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oshot"]
 
@@ -19,8 +20,8 @@ contact_monitor = true
 script = ExtResource("1_c1iv4")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.398438, 0.398438)
+[node name="FlockSprite" parent="." instance=ExtResource("3_4mqbs")]
+scale = Vector2(0.398, 0.398)
 texture = ExtResource("1_twrx6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

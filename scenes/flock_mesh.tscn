@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://co4owu70icljd"]
+
+[ext_resource type="Script" path="res://scenes/flock_mesh.gd" id="1_ylug6"]
+[ext_resource type="Texture2D" uid="uid://ct6ayewre4gxi" path="res://icon.svg" id="3_shxk1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kn3th"]
+noise_type = 3
+frequency = 0.0409
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pw6se"]
+width = 128
+height = 128
+generate_mipmaps = false
+seamless = true
+noise = SubResource("FastNoiseLite_kn3th")
+
+[node name="FlockMesh" type="MultiMeshInstance2D"]
+script = ExtResource("1_ylug6")
+flock_texture = ExtResource("3_shxk1")
+resolution = Vector2(10, 10)
+noise_texture2 = SubResource("NoiseTexture2D_pw6se")

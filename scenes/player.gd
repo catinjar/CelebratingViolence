@@ -77,7 +77,6 @@ func update_love_shooting(delta):
 		var bullet = love_bullet_scene.instantiate()
 		
 		var bullets_node = get_node("/root/Main/BulletContainer")
-		bullets_node.add_child(bullet)
 		
 		bullet.global_position = global_position
 		
@@ -85,6 +84,8 @@ func update_love_shooting(delta):
 		
 		var bullet_direction = direction.normalized()
 		bullet.linear_velocity = bullet_direction * bullet_speed
+		
+		bullets_node.add_child(bullet)
 		
 		love_shoot_time -= actual_reload_time
 
@@ -114,7 +115,6 @@ func update_shooting(delta):
 		var bullet = bullet_scene.instantiate()
 		
 		var bullets_node = get_node("/root/Main/BulletContainer")
-		bullets_node.add_child(bullet)
 		
 		bullet.global_position = global_position
 		
@@ -128,6 +128,10 @@ func update_shooting(delta):
 			var bullet_direction = direction.normalized()
 			bullet_direction = bullet_direction.rotated(deg_to_rad(randf_range(-5, 5)))
 			bullet.linear_velocity = bullet_direction * bullet_speed
+		
+		bullets_node.add_child(bullet)
+		
+		
 		
 		shoot_time -= actual_reload_time
 		
@@ -148,7 +152,6 @@ func update_new_year_shooting(delta):
 		var bullet = new_year_bullet_scene.instantiate()
 		
 		var bullets_node = get_node("/root/Main/BulletContainer")
-		bullets_node.add_child(bullet)
 		
 		bullet.global_position = global_position
 		
@@ -162,6 +165,8 @@ func update_new_year_shooting(delta):
 			var bullet_direction = direction.normalized()
 			bullet_direction = bullet_direction.rotated(deg_to_rad(randf_range(-5, 5)))
 			bullet.linear_velocity = bullet_direction * bullet_speed
+		
+		bullets_node.add_child(bullet)
 		
 		new_year_shoot_time -= actual_reload_time
 		
@@ -185,8 +190,6 @@ func update_valentines_day_shooting(delta):
 		var bullets_node = get_node("/root/Main/BulletContainer")
 		bullets_node.add_child(bullet)
 		
-		bullet.global_position = global_position
-		
 		var bullet_speed = 200
 		
 		if GlobalState.has_rule(GlobalState.Rule.ULTRAVIOLENCE):
@@ -197,6 +200,8 @@ func update_valentines_day_shooting(delta):
 			var bullet_direction = direction.normalized()
 			bullet_direction = bullet_direction.rotated(deg_to_rad(randf_range(-5, 5)))
 			bullet.linear_velocity = bullet_direction * bullet_speed
+		
+		bullet.global_position = global_position
 		
 		valentines_day_shoot_time -= actual_reload_time
 		
@@ -228,9 +233,6 @@ func update_chinese_shooting(delta):
 		var bullet = chinese_bullet_scene.instantiate()
 		
 		var bullets_node = get_node("/root/Main/BulletContainer")
-		bullets_node.add_child(bullet)
-		
-		bullet.global_position = global_position
 		
 		var bullet_speed = 250
 		
@@ -242,6 +244,10 @@ func update_chinese_shooting(delta):
 			var bullet_direction = direction.normalized()
 			bullet_direction = bullet_direction.rotated(deg_to_rad(randf_range(-40, 40)))
 			bullet.linear_velocity = bullet_direction * bullet_speed
+		
+		bullets_node.add_child(bullet)
+		
+		bullet.global_position = global_position
 		
 		chinese_shoot_time -= actual_reload_time
 		

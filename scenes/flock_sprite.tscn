@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://id5m4sbumfxt"]
+
+[ext_resource type="Texture2D" uid="uid://mhudwpew4vly" path="res://art/player.png" id="1_lay6c"]
+[ext_resource type="Script" path="res://scenes/flock_sprite.gd" id="1_nqrvf"]
+
+[node name="FlockSprite" type="Sprite2D"]
+texture = ExtResource("1_lay6c")
+script = ExtResource("1_nqrvf")
+resolution = Vector2(20, 20)
