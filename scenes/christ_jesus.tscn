@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4g2uu35reyem" path="res://art/christ_jesus.png" id="1_bvpfc"]
 [ext_resource type="Script" path="res://scenes/christ_jesus.gd" id="1_t18n8"]
-[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://scenes/flock_sprite.tscn" id="2_wvm5x"]
+[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://flocking_package/scenes/flock_sprite.tscn" id="2_y0vbo"]
 [ext_resource type="Texture2D" uid="uid://cl01847k4gdhs" path="res://art/2d_lights_and_shadows_neutral_point_light.webp" id="3_q4hh1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kh5fv"]
@@ -13,7 +13,7 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_t18n8")
 
-[node name="FlockSprite" parent="." instance=ExtResource("2_wvm5x")]
+[node name="FlockSprite" parent="." instance=ExtResource("2_y0vbo")]
 scale = Vector2(1.313, 1.313)
 texture = ExtResource("1_bvpfc")
 

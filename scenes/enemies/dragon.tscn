@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cvlcomku25yvp" path="res://art/dragon_enemy.png" id="2_jf1yt"]
 [ext_resource type="PackedScene" uid="uid://cucxpombg3rdv" path="res://scenes/enemies/dead_enemy.tscn" id="3_c8bwc"]
 [ext_resource type="PackedScene" uid="uid://b5hlsmleyglv1" path="res://scenes/blood.tscn" id="4_giode"]
-[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://scenes/flock_sprite.tscn" id="5_5m87g"]
+[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://flocking_package/scenes/flock_sprite.tscn" id="5_xqhuy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0076o"]
 radius = 133.507
@@ -28,7 +28,7 @@ health = 150
 score = 500
 metadata/_edit_group_ = true
 
-[node name="FlockSprite" parent="." instance=ExtResource("5_5m87g")]
+[node name="FlockSprite" parent="." instance=ExtResource("5_xqhuy")]
 scale = Vector2(3.193, 3.193)
 texture = ExtResource("2_jf1yt")
 

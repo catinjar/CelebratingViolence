@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/bullets/bullet.gd" id="1_3iy7e"]
 [ext_resource type="Texture2D" uid="uid://dtcijxbdbucg3" path="res://art/bullet.png" id="1_qgu24"]
-[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://scenes/flock_sprite.tscn" id="3_aoevr"]
+[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://flocking_package/scenes/flock_sprite.tscn" id="2_cuflw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mwfrv"]
 
@@ -16,7 +16,7 @@ max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_3iy7e")
 
-[node name="FlockSprite" parent="." instance=ExtResource("3_aoevr")]
+[node name="FlockSprite" parent="." instance=ExtResource("2_cuflw")]
 scale = Vector2(0.188, 0.188)
 texture = ExtResource("1_qgu24")
 

@@ -23,7 +23,7 @@ buses/default_bus_layout="res://sounds/new_audio_bus_layout.tres"
 
 GlobalState="*res://scenes/global_state.tscn"
 MusicPlayer="*res://scenes/music_player.tscn"
-FlockMeshCpp="*res://scenes/flock_mesh_cpp.tscn"
+FlockMeshCpp="*res://flocking_package/scenes/flock_mesh_cpp.tscn"
 
 [display]
 

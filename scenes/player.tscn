@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://qr84kyvdphhm" path="res://scenes/bullets/flame_bullet.tscn" id="5_t2mlg"]
 [ext_resource type="PackedScene" uid="uid://fvslqcv4ohqw" path="res://scenes/love.tscn" id="6_gqkms"]
 [ext_resource type="Texture2D" uid="uid://cl01847k4gdhs" path="res://art/2d_lights_and_shadows_neutral_point_light.webp" id="6_k1f4w"]
-[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://scenes/flock_sprite.tscn" id="8_napqf"]
+[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://flocking_package/scenes/flock_sprite.tscn" id="8_napqf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvisr"]
 radius = 27.2947

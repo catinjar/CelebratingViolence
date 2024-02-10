@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/bullets/bullet.gd" id="1_td2ql"]
 [ext_resource type="Texture2D" uid="uid://dtcijxbdbucg3" path="res://art/bullet.png" id="2_x38ma"]
-[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://scenes/flock_sprite.tscn" id="3_syjm0"]
+[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://flocking_package/scenes/flock_sprite.tscn" id="3_4vhm1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mwfrv"]
 
@@ -24,7 +24,7 @@ position = Vector2(-3.8147e-06, -1)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_x38ma")
 
-[node name="FlockSprite" parent="." instance=ExtResource("3_syjm0")]
+[node name="FlockSprite" parent="." instance=ExtResource("3_4vhm1")]
 modulate = Color(0.992157, 0.537255, 0.113725, 1)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_x38ma")

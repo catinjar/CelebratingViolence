@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://buxef5kvsmku8"]
-
-[ext_resource type="Texture2D" uid="uid://brkcxp3nxgn72" path="res://art/Sprite-0001.png" id="2_fxavk"]
-
-[node name="FlockMeshCpp" type="GDExample"]
-texture = ExtResource("2_fxavk")

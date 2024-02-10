@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5hlsmleyglv1"]
 
-[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://scenes/flock_sprite.tscn" id="1_h78o8"]
+[ext_resource type="PackedScene" uid="uid://id5m4sbumfxt" path="res://flocking_package/scenes/flock_sprite.tscn" id="1_7majf"]
 [ext_resource type="Texture2D" uid="uid://cs7a5813qgt30" path="res://art/blood.png" id="1_nloht"]
 
 [node name="Blood" type="Sprite2D"]
 z_index = -1000
 
-[node name="FlockSprite" parent="." instance=ExtResource("1_h78o8")]
+[node name="FlockSprite" parent="." instance=ExtResource("1_7majf")]
 texture = ExtResource("1_nloht")
